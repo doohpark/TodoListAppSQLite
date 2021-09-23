@@ -41,7 +41,7 @@ public class TodoItem {
  
     @Override
     public String toString() {
-    	return "[" + title + "j" +desc + "-"+current_date;
+    	return "[" + title + "]" +desc + "-"+current_date;
     }
     public String toSaveString() {
     	return title + "##" + desc + "##" + current_date + 
