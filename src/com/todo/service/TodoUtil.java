@@ -28,10 +28,11 @@ public class TodoUtil {
 		}
 		
 		System.out.println("내용 > ");
-		desc = sc.next();
+		desc = sc.nextLine().trim();
 		
 		TodoItem t = new TodoItem(title, desc);
 		list.addItem(t);
+		System.out.println("추가되었습니다!");
 	}
 
 	public static void deleteItem(TodoList l) {
