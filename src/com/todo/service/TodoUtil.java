@@ -26,7 +26,7 @@ public class TodoUtil {
 			System.out.printf("제목이 중복됩니다!");
 			return;
 		}
-		
+		sc.nextLine();
 		System.out.println("내용 > ");
 		desc = sc.nextLine().trim();
 		
