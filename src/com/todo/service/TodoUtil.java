@@ -80,8 +80,9 @@ public class TodoUtil {
 		}
 		
 		System.out.println("새 내용 > ");
-		String new_description = sc.next().trim();
-		
+		sc.nextLine();
+		String new_description = sc.nextLine().trim();
+
 		System.out.println("새 마감일자 > ");
 		String new_due_date = sc.nextLine().trim();
 		TodoItem t = new TodoItem(new_category,new_title, new_description,new_due_date);
