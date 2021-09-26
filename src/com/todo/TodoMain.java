@@ -2,10 +2,10 @@ package com.todo;
 
 import java.util.Scanner;
 
+
 import com.todo.dao.TodoList;
 import com.todo.menu.Menu;
 import com.todo.service.TodoUtil;
-
 public class TodoMain {
 	
 	public static void start() {
@@ -20,6 +20,7 @@ public class TodoMain {
 			Menu.prompt();
 			isList = false;
 			String choice = sc.next();
+			String key = sc.nextLine().trim();
 			switch (choice) {
 
 			case "add":
@@ -56,6 +57,16 @@ public class TodoMain {
 				System.out.println("날짜순 출력");
 				isList = true;
 				break;
+			case "ls_date_desc":
+				l.sortByDate_reverse();
+				System.out.println("날짜 역순 출력");
+				isList = true;
+				break;
+			case "find":
+				l.listAll_title_desc(key);
+			case "find_cate":
+				l.listAll_category(key);
+				break;
 			case "help":
 				Menu.displaymenu();
 				break;
@@ -68,7 +79,7 @@ public class TodoMain {
 				break;
 			}
 			
-			if(isList) TodoUtil.listAll(l);
+			if(isList) l.listAll();
 		} while (!quit);
 		TodoUtil.saveList(l,"todolist.txt");
 	}
