@@ -52,8 +52,17 @@ public class TodoUtil {
 			System.out.printf("범위 초과");
 			return;
 		}
-		l.deleteItem(num-1);
-		System.out.println("삭제 완료!");
+		System.out.println("삭제 할까요? (y/n)");
+		String yn = sc.next();
+		
+		if("y".equalsIgnoreCase(yn)) {
+			l.deleteItem(num-1);
+			System.out.println("삭제 완료!");
+		}
+		else {
+			System.out.println("삭제 취소!");
+			return;
+		}
 	}
 
 
@@ -93,7 +102,7 @@ public class TodoUtil {
 	public static void listAll(TodoList l) {
 		System.out.println("[전체 목록, 총 " + l.getSize()+"개]");
 		for (TodoItem item : l.getList()) {
-			System.out.println(l.indexOf(item)+1+". [" + item.getCategory() + "]" + item.getTitle()+ ":"+item.getDesc()+"-"+item.getDue_date()+" <"+item.getCurrent_date()+"> ");
+			System.out.println(l.indexOf(item)+1+". [" + item.getCategory() + "]" + item.getTitle()+ "-"+item.getDesc()+"-"+item.getDue_date()+" <"+item.getCurrent_date()+"> ");
 
 	}
 	}

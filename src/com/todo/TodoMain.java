@@ -67,6 +67,9 @@ public class TodoMain {
 			case "find_cate":
 				l.listAll_category(key);
 				break;
+			case "ls_cate":
+				l.show_ls_cate();
+				break;
 			case "help":
 				Menu.displaymenu();
 				break;
