@@ -83,7 +83,24 @@ public class TodoMain {
 	        	int number = sc.nextInt();
 	        	TodoUtil.completeItem(l, number);
 	        	break;
-				
+	        	
+	        case "ls_mustDo":
+	        	TodoUtil.listAllMustDo(l,1);
+	        	break;
+	        	
+	        case "mustDo":
+	        	int num =sc.nextInt();
+	        	TodoUtil.mustDo(l, num);
+	        	break;
+	        	
+	        case "save":
+	        	TodoUtil.saveJson(l);
+	        	break;
+	        	
+	        case "load":
+	        	TodoUtil.loadJson(l);
+	        	break;
+	        	
 			case "help":
 				Menu.displaymenu();
 				break;

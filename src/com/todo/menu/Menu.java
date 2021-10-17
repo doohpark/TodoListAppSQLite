@@ -18,6 +18,10 @@ public class Menu {
         System.out.println("ls_cate - 카테고리 목록");
         System.out.println("comp num - 항목 완료");
         System.out.println("ls_comp - 완료된 항목 출력");
+        System.out.println("mustDo num - 꼭 해야하는 항목 체크");
+        System.out.println("ls_mustDo - 꼭 해야하는 항목 출력");
+        System.out.println("save - Json 저장");
+        System.out.println("load - Json 로딩");
         System.out.println("exit - 종료");
     }
     public static void prompt(){ 

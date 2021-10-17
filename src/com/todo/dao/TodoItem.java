@@ -6,21 +6,26 @@ import java.text.SimpleDateFormat;
 public class TodoItem {
 	private int id;
 	private int is_completed;
+	private int mustDo;
     private String title;
     private String desc;
     private String current_date;
     private String category;
     private String due_date;
+    private String reason;
+    private String time;
 
-
-    public TodoItem(String title, String desc, String category, String due_date){
+    public TodoItem(String title, String desc, String category, String reason, String time, String due_date){
         this.title=title;
         this.desc=desc;
         this.category=category;
+        this.time = time;
+        this.reason=reason;
         this.due_date=due_date;
         SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd kk:mm:ss");
         this.current_date = f.format(new Date());
         this.is_completed = 0;
+        this.mustDo = 0;
     }
     
     public void setId(int id) {
@@ -38,7 +43,12 @@ public class TodoItem {
     public int get_is_completed() {
     	return is_completed;
     }
-    
+    public void set_mustDo(int num) {
+    	this.mustDo=num;
+    }
+    public int get_mustDo() {
+    	return mustDo;
+    }
     public String getTitle() {
         return title;
     }
@@ -54,7 +64,20 @@ public class TodoItem {
     public void setDesc(String desc) {
         this.desc = desc;
     }
-
+    
+    public String getReason() {
+    	return reason;
+    }
+    public void setReason(String reason) {
+    	this.reason=reason;
+    }
+    
+    public String getTime() {
+    	return time;
+    }
+    public void setTime(String time) {
+    	this.time=time;
+    }
     public String getCurrent_date() {
         return current_date;
     }
@@ -82,10 +105,20 @@ public class TodoItem {
     @Override
     public String toString() {
     	if(this.is_completed == 0) {
-    		return id + " [" + category + "] " + title + " - " + desc + " - " + due_date + " - " + current_date;
+    		if(this.mustDo==0) {
+    			return id + " [" + category + "] " + title + " - " + desc + " - "+ reason + " - " + time + " - " + due_date + " - " + current_date;
+    		}
+    		else {
+    			return id +" [***] " +" [" + category + "] " + title + " - " + desc + " - "+ reason + " - " + time + " - " + due_date + " - " + current_date;
+    		}
     	}
     	else {
-    		return id + " [" + category + "] " + title + " [V] " + " - " + desc + " - " + due_date + " - " + current_date;
+    		if(this.mustDo==0) {
+    			return id + " [" + category + "] " + title + " [V] " + " - " + desc + " - "+ reason + " - " + time + " - " + due_date + " - " + current_date;
     	}
+    		else {
+    			return id  +" [***] " + " [" + category + "] " + title + " [V] " + " - " + desc + " - "+ reason + " - " + time + " - " + due_date + " - " + current_date;
+    		}
     }
+}
 }
